@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "sketch-pad.js",
-        "draw.js"
+        "draw.js",
+        "style.css"
     ]
 }
