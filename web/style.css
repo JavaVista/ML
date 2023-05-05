@@ -12,7 +12,12 @@ body {
     text-align: center;
 }
 
-button {
+.sketch-pad{
+    visibility: hidden;
+}
+
+button,
+input[type="text"] {
     background-color: transparent;
     border-radius: 4px;
     border: 2px solid #3b3b3b;

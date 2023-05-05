@@ -19,11 +19,16 @@ class SketchPad {
 
         this.ctx = this.canvas.getContext('2d');
 
-        this.paths = [];
-        this.isDrawing = false;
+        this.reset();
 
         // hashtag in the method indicates a private method https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields
         this.#addEventListeners();
+    }
+
+    reset() {
+        this.paths = [];
+        this.isDrawing = false;
+        this.#redraw()
     }
 
     #addEventListeners() {
