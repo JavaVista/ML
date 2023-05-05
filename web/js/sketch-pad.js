@@ -28,7 +28,7 @@ class SketchPad {
     reset() {
         this.paths = [];
         this.isDrawing = false;
-        this.#redraw()
+        this.#redraw();
     }
 
     #addEventListeners() {
@@ -47,7 +47,7 @@ class SketchPad {
             }
         };
 
-        this.canvas.onmouseup = () => {
+        document.onmouseup = () => {
             this.isDrawing = false;
         };
         // to make mobile work with eventlisteners on first touch
@@ -61,19 +61,19 @@ class SketchPad {
             this.canvas.onmousemove(loc);
         };
 
-        this.canvas.ontouchend = () => {
-            this.canvas.onmouseup();
+        document.ontouchend = () => {
+            document.onmouseup();
         };
         this.undoBtn.onclick = () => {
             this.paths.pop();
             this.#redraw();
-        }
+        };
     }
 
     #redraw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         draw.paths(this.ctx, this.paths);
-        if(this.paths.length > 0) {
+        if (this.paths.length > 0) {
             this.undoBtn.disabled = false;
         } else {
             this.undoBtn.disabled = true;
