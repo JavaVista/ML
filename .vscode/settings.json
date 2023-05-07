@@ -3,6 +3,7 @@
         "sketch-pad.js",
         "draw.js",
         "style.css",
-        "data"
+        "data",
+        "dataset-generator.js"
     ]
 }

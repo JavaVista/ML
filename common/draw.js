@@ -14,9 +14,11 @@ draw.path = (ctx, path, color = '#0b0b0b') => {
 };
 
 draw.paths = (ctx, paths, color = '#0b0b0b') => {
-    for(const path of paths) {
+    for (const path of paths) {
         draw.path(ctx, path, color);
     }
 };
 
-module.exports = draw;
+if(typeof module !== 'undefined') {
+    module.exports = draw;
+}

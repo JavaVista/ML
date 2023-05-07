@@ -1,13 +1,10 @@
 const draw = require('../common/draw.js');
+const constants = require('../common/constants.js');
+const utils = require('../common/utils.js');
+const { createCanvas } = require('canvas');
 
-const constants = {};
-
-constants.DATA_DIR = '../data/';
-constants.RAW_DATA_DIR = constants.DATA_DIR + 'raw/';
-constants.DATASET_DIR = constants.DATA_DIR + 'dataset/';
-constants.JSON_DIR = constants.DATASET_DIR + 'json/';
-constants.IMG_DIR = constants.DATASET_DIR + 'img/';
-constants.SAMPLES = constants.DATASET_DIR + 'samples.json';
+const canvas = createCanvas(400, 400);
+const ctx = canvas.getContext('2d');
 
 const fs = require('fs');
 const path = require('path');
@@ -33,8 +30,9 @@ fileNames.forEach(fileName => {
             JSON.stringify(paths)
         );
 
-        generateImageFile(constants.SAMPLES, JSON.stringify(samples));
-
+        generateImageFile(constants.IMG_DIR + id + '.png', paths);
+        const numberOfDrawings = 8
+        utils.printProgress(id, fileNames.length * numberOfDrawings);
         id++;
     }
 });
@@ -42,8 +40,9 @@ fileNames.forEach(fileName => {
 fs.writeFileSync(constants.SAMPLES, JSON.stringify(samples));
 
 function generateImageFile(outputFile, paths) {
-    draw.path(ctx, path);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    draw.paths(ctx, paths);
+
     const buffer = canvas.toBuffer('image/png');
     fs.writeFileSync(outputFile, buffer);
 }
-
