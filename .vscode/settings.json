@@ -1,9 +1,0 @@
-{
-    "conventionalCommits.scopes": [
-        "sketch-pad.js",
-        "draw.js",
-        "style.css",
-        "data",
-        "dataset-generator.js"
-    ]
-}
