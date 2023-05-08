@@ -12,7 +12,7 @@ body {
     text-align: center;
 }
 
-.sketch-pad{
+.sketch-pad {
     visibility: hidden;
 }
 
@@ -43,4 +43,39 @@ button:disabled {
 button:not(:disabled):hover {
     background-color: #3b3b3b;
     color: #87ceeb;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+}
+
+.thumb {
+    width: 100%;
+}
+
+.row-label {
+    flex: 2 1 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+}
+
+.row-id {
+    font-size: 0.7em;
+    color: #a5a5a5;
+}
+
+.sample-container {
+    flex: 1 1 0;
+    background-color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    margin: 1px;
+    overflow: hidden;
+}
+
+.flagged {
+    filter: blur(5px);
 }

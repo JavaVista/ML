@@ -31,13 +31,14 @@ fileNames.forEach(fileName => {
         );
 
         generateImageFile(constants.IMG_DIR + id + '.png', paths);
-        const numberOfDrawings = 8
+        const numberOfDrawings = 8;
         utils.printProgress(id, fileNames.length * numberOfDrawings);
         id++;
     }
 });
 
 fs.writeFileSync(constants.SAMPLES, JSON.stringify(samples));
+fs.writeFileSync(constants.SAMPLES_JS, `const samples = ${JSON.stringify(samples)};`);
 
 function generateImageFile(outputFile, paths) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
