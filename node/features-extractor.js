@@ -24,12 +24,12 @@ for (const sample of samples) {
     count++; // Increment the count for each processed sample
 }
 
-const featureName = ['Path Count', 'Point Count'];
+const featureNames = ['Path Count', 'Point Count'];
 
 fs.writeFileSync(
     constants.FEATURES,
     JSON.stringify({
-        featureName,
+        featureNames,
         samples: samples.map(sample => {
             return {
                 point: sample.point,
@@ -42,5 +42,5 @@ fs.writeFileSync(
 fs.writeFileSync(
     constants.FEATURES_JS,
     `const features = 
-    ${JSON.stringify({ featureName, samples })};`
+    ${JSON.stringify({ featureNames, samples })};`
 );

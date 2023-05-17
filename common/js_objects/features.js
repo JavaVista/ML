@@ -1,5 +1,5 @@
 const features = {
-    featureName: ['Path Count', 'Point Count'],
+    featureNames: ['Path Count', 'Point Count'],
     samples: [
         {
             id: 1,
