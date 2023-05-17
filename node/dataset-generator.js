@@ -9,6 +9,8 @@ const ctx = canvas.getContext('2d');
 const fs = require('fs');
 const path = require('path');
 
+console.log('Generating dataset...');
+
 const fileNames = fs.readdirSync(constants.RAW_DATA_DIR);
 const samples = [];
 let id = 1;
